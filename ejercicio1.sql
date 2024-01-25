@@ -2,20 +2,65 @@
 >>>>>> Ejercicio 1 
 1. Crear una tabla llamada "Clientes" con las columnas: id (entero, clave primaria),
 nombre (texto) y email (texto).
-ejercicio 1
+
+CREATE TABLE IF NOT EXISTS Clientes(
+	id SERIAL PRIMARY KEY, 
+	nombre VARCHAR(255) NOT NULL,
+	email VARCHAR(255)
+)
 
 2. Insertar un nuevo cliente en la tabla "Clientes" con id=1, nombre="Juan" y
 email="juan@example.com".
 
+INSERT INTO public.Clientes(nombre, email)
+VALUES ('Juan', 'juan@example.com')
+
 3. Actualizar el email del cliente con id=1 a "juan@gmail.com".
+
+UPDATE public.Clientes
+SET email = 'juan@gmail.com'
+WHERE id = 1;
+
 4. Eliminar el cliente con id=1 de la tabla "Clientes".
+
+DELETE FROM public.Clientes
+WHERE id = 1;
+
 5. Crear una tabla llamada "Pedidos" con las columnas: id (entero, clave primaria),
 cliente_id (entero, clave externa referenciando a la tabla "Clientes"), producto
 (texto) y cantidad (entero).
+
+CREATE TABLE IF NOT EXISTS Pedidos(
+	id SERIAL PRIMARY KEY, 
+	cliente_id INT NOT NULL,
+	producto VARCHAR(255),
+	cantidad INT,
+	CONSTRAINT FK_cliente_id FOREIGN KEY (cliente_id) REFERENCES clientes (id)
+)
+
 6. Insertar un nuevo pedido en la tabla "Pedidos" con id=1, cliente_id=1,
 producto="Camiseta" y cantidad=2.
+
+--- creo nuevamente cliente en tabla clientes
+
+INSERT INTO public.Clientes(nombre, email)
+VALUES ('Juan', 'juan@gmail.com')
+
+----- luego creo pedido
+
+INSERT INTO public.Pedidos(cliente_id, producto, cantidad)
+VALUES (1, 'Camiseta', 2)
+	
 7. Actualizar la cantidad del pedido con id=1 a 3.
+
+UPDATE public.Pedidos
+SET cantidad = 3
+WHERE id = 1;
+
 8. Eliminar el pedido con id=1 de la tabla "Pedidos".
+
+
+
 9. Crear una tabla llamada "Productos" con las columnas: id (entero, clave
 primaria), nombre (texto) y precio (decimal).
 10. Insertar varios productos en la tabla "Productos" con diferentes valores.
