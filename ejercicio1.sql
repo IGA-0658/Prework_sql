@@ -2,6 +2,7 @@
 >>>>>> Ejercicio 1 
 1. Crear una tabla llamada "Clientes" con las columnas: id (entero, clave primaria),
 nombre (texto) y email (texto).
+ejercicio 1
 
 2. Insertar un nuevo cliente en la tabla "Clientes" con id=1, nombre="Juan" y
 email="juan@example.com".
