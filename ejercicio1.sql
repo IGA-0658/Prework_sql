@@ -72,20 +72,6 @@ CREATE TABLE IF NOT EXISTS Productos(
 )
 
 10. Insertar varios productos en la tabla "Productos" con diferentes valores.
-
-INSERT INTO public.Productos(nombre, precio)
-VALUES ('Camiseta', 15)
-INSERT INTO public.Productos(nombre, precio)
-VALUES ('Pantalon', 45.50)
-INSERT INTO public.Productos(nombre, precio)
-VALUES ('Jersey', 25.80)
-INSERT INTO public.Productos(nombre, precio)
-VALUES ('Camisa', 39.99)
-INSERT INTO public.Productos(nombre, precio)
-VALUES ('Zapatilla', 45)
-INSERT INTO public.Productos(nombre, precio)
-VALUES ('Abrigo', 75)
-
 11. Consultar todos los clientes de la tabla "Clientes".
 
 SELECT * FROM public.clientes
