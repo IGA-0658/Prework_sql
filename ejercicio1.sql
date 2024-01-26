@@ -46,7 +46,7 @@ producto="Camiseta" y cantidad=2.
 INSERT INTO public.Clientes(nombre, email)
 VALUES ('Juan', 'juan@gmail.com')
 
------ luego creo pedido
+----- luego creo pedidos
 
 INSERT INTO public.Pedidos(cliente_id, producto, cantidad)
 VALUES (1, 'Camiseta', 2)
@@ -59,11 +59,22 @@ WHERE id = 1;
 
 8. Eliminar el pedido con id=1 de la tabla "Pedidos".
 
-
+DELETE FROM public.Pedidos
+WHERE id = 1;
 
 9. Crear una tabla llamada "Productos" con las columnas: id (entero, clave
 primaria), nombre (texto) y precio (decimal).
+
+CREATE TABLE IF NOT EXISTS Productos(
+	id SERIAL PRIMARY KEY, 
+	nombre VARCHAR(255) NOT NULL,
+	precio DECIMAL NOT NULL
+)
+
 10. Insertar varios productos en la tabla "Productos" con diferentes valores.
+
+
+
 11. Consultar todos los clientes de la tabla "Clientes".
 12. Consultar todos los pedidos de la tabla "Pedidos" junto con los nombres de los
 clientes correspondientes.
